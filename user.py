@@ -1,14 +1,12 @@
-users_list = {
-    'Olga': '12345',
-    'Anna': '67890'
-}
+from basket import Basket
 
+users_list = {'Olga': '12345', 'Anna': '67890'}
 
 class User:
     def __init__(self, login: str, password: str):
         self.login = login
         self.password = password
-
+        #self.__basket = Basket()
 
 if __name__ == '__main__':
     user1 = User('Olga', '12345')
@@ -17,7 +15,7 @@ if __name__ == '__main__':
 
 def check_password(login, password):
     try:
-        if login in users_list and password in users_list and login == password:
+        if users_list[login] == password:
             print(f'Здравствуйте {login}.')
             return True
         print('Пароль введен не верно.')
@@ -25,5 +23,3 @@ def check_password(login, password):
     except KeyError:
         print('Вы не зарегистрированы. Авторизуйтесь')
         return False
-
-
